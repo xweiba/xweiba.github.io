@@ -1,5 +1,5 @@
 ---
-title: New Test Page
+title: Travis CI + Hexo 实现自动构建部署GitHub Pages
 date: 2020-09-25 10:22:02
 tags:
 
