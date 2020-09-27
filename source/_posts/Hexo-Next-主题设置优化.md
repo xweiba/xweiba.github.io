@@ -273,5 +273,46 @@ canvas_nest:
 
 # Travis-CI 脚本修改
 
-如有开启`Travis-CI`, 需要重写下脚本~~
+如有使用 `Travis-CI` , 需要重写下脚本~~
+
+```yml
+os: linux
+language: node_js 
+node_js:
+  - 10  # 使用 nodejs LTS v10
+branches:
+  only:
+    - source # 只监控 source 的 branch
+before_script: ## 根据你所用的主题和自定义的不同，这里会有所不同
+  - npm install -g hexo-cli # 在 CI 环境内安装 Hexo
+  - mkdir themes # 由于我们没有将 themes/ 上传，所以我们需要新建一个
+  - cd themes 
+  - git clone https://github.com/theme-next/hexo-theme-next next #从 Github 上拉取 next 主题
+  - cd next
+  - npm install --production # 安装 next 主题的依赖
+  - git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax # 安装pjax
+  - git clone https://github.com/theme-next/theme-next-canvas-nest source/lib/canvas-nest # 安装背景动画
+  - cd ../.. # 返回站点根目录
+  - cp _config.theme.yml themes/next/_config.yml # 将主题的配置文件放回原处    
+  - npm install # 在根目录安装站点需要的依赖 
+  - hexo new page about   #看看menu上还有什么标签没创建就行创建
+  - hexo new page tags    #创建标签
+  - hexo new page categories #创建分类
+  - hexo new page achives #创建归档
+  - npm install hexo-excerpt --save # 开启自动摘录
+script: 
+  - hexo generate # generate static files
+deploy: # 根据个人情况，这里会有所不同
+  provider: pages
+  skip_cleanup: true # 构建完成后不清除
+  token: $GH_TOKEN # 你刚刚设置的 Token
+  keep_history: true # 保存历史
+  #fqdn: blog.haukeng.me # 自定义域名，使用 username.github.io 可删除
+  on:
+    branch: source # hexo 站点源文件所在的 branch
+  local_dir: public 
+  target_branch: master # 存放生成站点文件的 branch，使用 username.github.io 必须是 master
+```
+
+
 
