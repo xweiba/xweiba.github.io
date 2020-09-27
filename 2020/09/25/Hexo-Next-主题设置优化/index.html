@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xweiba.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="next 主题相当有名, 不过默认配置看起来略微单调. 搜索了一下, 觉得这篇  使用 Github 空间搭建 Hexo 技术博客——使用NexT优化博客  相当不错, 记录一下.  可能是版本不同, 还是略微有点差异的.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo Next 主题设置优化">
+<meta property="og:url" content="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="Weiba&#39;s Blog">
+<meta property="og:description" content="next 主题相当有名, 不过默认配置看起来略微单调. 搜索了一下, 觉得这篇  使用 Github 空间搭建 Hexo 技术博客——使用NexT优化博客  相当不错, 记录一下.  可能是版本不同, 还是略微有点差异的.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925144839778.png">
+<meta property="og:image" content="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925150316977.png">
+<meta property="og:image" content="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925151720389.png">
+<meta property="og:image" content="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925152121252.png">
+<meta property="og:image" content="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925152323973.png">
+<meta property="og:image" content="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925152438727.png">
+<meta property="og:image" content="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925152516868.png">
+<meta property="article:published_time" content="2020-09-25T06:36:48.000Z">
+<meta property="article:modified_time" content="2020-09-27T01:23:45.455Z">
+<meta property="article:author" content="Weiba">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Next主题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925144839778.png">
+
+<link rel="canonical" href="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Hexo Next 主题设置优化 | Weiba's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Weiba's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/24520686?s=400&u=78b21dec789dfb9c51379f11ae2722672546e3a6&v=4">
+      <meta itemprop="name" content="Weiba">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiba's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo Next 主题设置优化
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-25 14:36:48" itemprop="dateCreated datePublished" datetime="2020-09-25T14:36:48+08:00">2020-09-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-27 09:23:45" itemprop="dateModified" datetime="2020-09-27T09:23:45+08:00">2020-09-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p> <code>next</code> 主题相当有名, 不过默认配置看起来略微单调. 搜索了一下, 觉得这篇  <a target="_blank" rel="noopener" href="https://blog.csdn.net/wugenqiang/article/details/88373990">使用 Github 空间搭建 Hexo 技术博客——使用NexT优化博客</a>  相当不错, 记录一下.</p>
+</blockquote>
+<p>可能是版本不同, 还是略微有点差异的.</p>
+<a id="more"></a>
+
+
+
+
+
+<h1 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h1><p>已下修改不做说明时都为 <code>theme/next/-config.yml</code> 文件, 直接用<code>vim</code>或其他编辑器修改, 保存即可生效, 不用重启 <code>hexo</code></p>
+<h2 id="开启需要的导航栏"><a href="#开启需要的导航栏" class="headerlink" title="开启需要的导航栏"></a>开启需要的导航栏</h2><p>在配置中找到 <code>menu</code> 看看自己博客所需的导航栏, 需要开启的将头部 <code>#</code> 号删除即可.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span> <span class="comment"># 首页</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span> <span class="comment"># 关于</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span> <span class="comment"># 标签</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span> <span class="comment"># 分类</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span> <span class="comment"># 归档</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat        </span></span><br></pre></td></tr></table></figure>
+
+<p>显示如下:</p>
+<img src="/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925144839778.png" class="" title="image-20200925144839778">
+
+<p><code>menu_settings</code> 配置控制是否显示导航栏的图标和对应的文章数量</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu_settings:</span></span><br><span class="line">  <span class="attr">icons:</span> <span class="literal">true</span> <span class="comment"># 是否显示图标</span></span><br><span class="line">  <span class="attr">badges:</span> <span class="literal">false</span> <span class="comment"># 是否显示文章数量</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建导航栏对应的页面"><a href="#创建导航栏对应的页面" class="headerlink" title="创建导航栏对应的页面"></a>创建导航栏对应的页面</h2><p>命令行窗口进入项目目录执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo new page about   <span class="comment">#看看menu上还有什么标签没创建就行创建</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo new page tags    <span class="comment">#创建标签</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo new page categories <span class="comment">#创建分类</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo new page achives <span class="comment">#创建归档</span></span></span><br></pre></td></tr></table></figure>
+
+<p>创建完成之后我们在自己项目查找，如我的是 <code>myblog/source/</code> 目录下查看新创建好的相关标签页面，里面包含各自的<code>index.md</code>文件，大家可以自行编辑了。</p>
+<h2 id="Schemes方案设置"><a href="#Schemes方案设置" class="headerlink" title="Schemes方案设置"></a>Schemes方案设置</h2><p>页面结构修改:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse  #这是 Nex默认版本，黑白主调，大量留白</span></span><br><span class="line"><span class="comment">#scheme: Mist  #Muse 的紧凑版本，整洁有序的单栏外观</span></span><br><span class="line"><span class="comment">#scheme: Pisces #双栏 Scheme，小家碧玉似的清新</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span>  <span class="comment">#双子座，也是双栏形式，和Pisces类似</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925150316977.png" class="" title="image-20200925150316977">
+
+<h2 id="Social-修改"><a href="#Social-修改" class="headerlink" title="Social 修改"></a>Social 修改</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="attr">GitHub:</span> <span class="string">https://github.com/xweiba</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-github</span></span><br><span class="line">  <span class="attr">E-Mail:</span> <span class="string">mailto:xiaoweiba1028@gmail.com</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-envelope</span></span><br><span class="line">  <span class="comment">#Weibo: https://weibo.com/yourname || fab fa-weibo</span></span><br><span class="line">  <span class="comment">#Google: https://plus.google.com/yourname || fab fa-google</span></span><br><span class="line">  <span class="comment">#Twitter: https://twitter.com/yourname || fab fa-twitter</span></span><br><span class="line">  <span class="comment">#FB Page: https://www.facebook.com/yourname || fab fa-facebook</span></span><br><span class="line">  <span class="comment">#StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow</span></span><br><span class="line">  <span class="comment">#YouTube: https://youtube.com/yourname || fab fa-youtube</span></span><br><span class="line">  <span class="comment">#Instagram: https://instagram.com/yourname || fab fa-instagram</span></span><br><span class="line">  <span class="comment">#Skype: skype:yourname?call|chat || fab fa-skype</span></span><br><span class="line"></span><br><span class="line"><span class="attr">social_icons:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 开启</span></span><br><span class="line">  <span class="attr">icons_only:</span> <span class="literal">true</span> <span class="comment"># 只显示图标 不显示名称</span></span><br><span class="line">  <span class="attr">transition:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925151720389.png" class="" title="image-20200925151720389">
+
+<h2 id="头像设置"><a href="#头像设置" class="headerlink" title="头像设置"></a>头像设置</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://avatars1.githubusercontent.com/u/24520686?s=400&amp;u=78b21dec789dfb9c51379f11ae2722672546e3a6&amp;v=4</span> <span class="comment">#头像图片路径 图片放置在next/source/images</span></span><br><span class="line">  <span class="comment"># If true, the avatar will be dispalyed in circle.</span></span><br><span class="line">  <span class="attr">rounded:</span> <span class="literal">false</span> <span class="comment">#是否显示圆形头像，true表示圆形，false默认</span></span><br><span class="line">  <span class="comment"># If true, the avatar will be rotated with the cursor.</span></span><br><span class="line">  <span class="attr">rotated:</span> <span class="literal">false</span> <span class="comment">#是否旋转 true表示旋转，false默认</span></span><br><span class="line">  <span class="attr">opacity:</span> <span class="number">0.7</span>  <span class="comment">#透明度0~1之间</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925152121252.png" class="" title="image-20200925152121252">
+
+<h2 id="toc边栏中的目录设置"><a href="#toc边栏中的目录设置" class="headerlink" title="toc边栏中的目录设置"></a>toc边栏中的目录设置</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#是否启动侧边栏</span></span><br><span class="line">  <span class="attr">number:</span> <span class="literal">true</span>  <span class="comment">#自动将列表编号添加到toc。</span></span><br><span class="line">  <span class="attr">wrap:</span> <span class="literal">true</span> <span class="comment">#true时是当标题宽度很长时，自动换到下一行</span></span><br><span class="line">  <span class="attr">max_depth:</span> <span class="number">6</span> <span class="comment"># 最大深度</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925152323973.png" class="" title="image-20200925152323973">
+
+<h2 id="Creative-Commons-4-0国际许可设置"><a href="#Creative-Commons-4-0国际许可设置" class="headerlink" title="Creative Commons 4.0国际许可设置"></a>Creative Commons 4.0国际许可设置</h2><img src="/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925152438727.png" class="" title="image-20200925152438727">
+
+<img src="/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/image-20200925152516868.png" class="" title="image-20200925152516868">
+
+<h2 id="开启自动摘录"><a href="#开启自动摘录" class="headerlink" title="开启自动摘录"></a>开启自动摘录</h2><p><strong>注意 <code>NexT 7.6.0</code> 及更高版本需要安装 <code>hexo-excerpt</code> 插件, 安装完毕需要重启 <code>hexo</code> 才会生效</strong></p>
+<p>安装 <code>hexo-excerpt</code>: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-excerpt --save</span><br></pre></td></tr></table></figure>
+
+<p>修改配置:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">excerpt_description:</span> <span class="literal">true</span> <span class="comment">#是否自动摘录主页中的描述作为前导文本。</span></span><br><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">1</span> <span class="comment"># 摘录深度</span></span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="记住位置"><a href="#记住位置" class="headerlink" title="记住位置"></a>记住位置</h2><p><code>save_scroll</code> 配置看 <code>git</code> 记录已经移动到插件里了, 暂时不知道怎么开启</p>
+<h2 id="代码块设置"><a href="#代码块设置" class="headerlink" title="代码块设置"></a>代码块设置</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="comment"># Available values: normal | night | night eighties | night blue | night bright</span></span><br><span class="line">  <span class="attr">highlight_theme:</span> <span class="string">galactic</span> <span class="comment">#代码高亮主题设置 设置喜欢的模式，默认：normal</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span>  <span class="comment">#是否添加复制按钮</span></span><br><span class="line">    <span class="attr">show_result:</span> <span class="literal">true</span>  <span class="comment">#是否显示文本复制结果</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="底部设置"><a href="#底部设置" class="headerlink" title="底部设置"></a>底部设置</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="attr">icon:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">user</span>  <span class="comment">#设置图标，想修改图标从https://fontawesome.com/v4.7.0/icons获取</span></span><br><span class="line">    <span class="attr">animated:</span> <span class="literal">true</span>  <span class="comment">#红心是否要为图标设置动画，默认为false </span></span><br><span class="line">    <span class="attr">color:</span> <span class="string">&quot;#66CDAA&quot;</span>  <span class="comment">#图标颜色</span></span><br><span class="line">  <span class="attr">beian:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span> <span class="comment"># 备案设置, 没有就不填吧</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="标签页图标"><a href="#标签页图标" class="headerlink" title="标签页图标"></a>标签页图标</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line">  <span class="attr">small:</span> <span class="string">/images/favicon-16x16-next.png</span>   <span class="comment">#小图标 默认的NexT</span></span><br><span class="line">  <span class="attr">medium:</span> <span class="string">/images/favicon-32x32-next.png</span>  <span class="comment">#中图标 默认NexT</span></span><br><span class="line">  <span class="attr">apple_touch_icon:</span> <span class="string">/images/apple-touch-icon-next.png</span> <span class="comment">#苹果触摸图标</span></span><br><span class="line">  <span class="attr">safari_pinned_tab:</span> <span class="string">/images/logo.svg</span>   <span class="comment">#safari固定标签</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="开启pjax"><a href="#开启pjax" class="headerlink" title="开启pjax"></a>开启pjax</h2><p>进入主题目录 <code>themes/next</code>, 获取<code>js</code>来安装依赖:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure>
+
+<p>开启配置:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pjax:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="主题样式优化"><a href="#主题样式优化" class="headerlink" title="主题样式优化"></a>主题样式优化</h1><p>需在配置文件中开启, 注意这个是项目为根目录的, 并不是主题的根目录:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  #head: source&#x2F;_data&#x2F;head.swig</span><br><span class="line">  #header: source&#x2F;_data&#x2F;header.swig</span><br><span class="line">  #sidebar: source&#x2F;_data&#x2F;sidebar.swig</span><br><span class="line">  #postMeta: source&#x2F;_data&#x2F;post-meta.swig</span><br><span class="line">  #postBodyEnd: source&#x2F;_data&#x2F;post-body-end.swig</span><br><span class="line">  #footer: source&#x2F;_data&#x2F;footer.swig</span><br><span class="line">  #bodyEnd: source&#x2F;_data&#x2F;body-end.swig</span><br><span class="line">  #variable: source&#x2F;_data&#x2F;variables.styl</span><br><span class="line">  #mixin: source&#x2F;_data&#x2F;mixins.styl</span><br><span class="line">  style: source&#x2F;_data&#x2F;styles.styl # 样式</span><br></pre></td></tr></table></figure>
+
+<h2 id="主页文章添加阴影效果和圆角"><a href="#主页文章添加阴影效果和圆角" class="headerlink" title="主页文章添加阴影效果和圆角"></a>主页文章添加阴影效果和圆角</h2><p>打开 <code>source/_data/styles.styl</code> 向里面添加:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 文章添加圆角</span><br><span class="line">.post-block &#123;</span><br><span class="line">  padding: 40px;</span><br><span class="line">  background: #fff;</span><br><span class="line">  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);</span><br><span class="line">  border-radius: 0.5rem;</span><br><span class="line">&#125;</span><br><span class="line">.post-block + .post-block &#123;</span><br><span class="line">  border-radius: 0.5rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 文章下移10像素</span><br><span class="line">.main-inner &#123;</span><br><span class="line">  margin-top: 10px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 导航栏 圆角 + 下移</span><br><span class="line">.header-inner &#123;</span><br><span class="line">  border-radius: 0.5rem;</span><br><span class="line">  margin-top: 10px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 个人信息圆角</span><br><span class="line">.sidebar-inner &#123;</span><br><span class="line">  border-radius: 0.5rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装背景动画模块"><a href="#安装背景动画模块" class="headerlink" title="安装背景动画模块"></a>安装背景动画模块</h2><p><code>NexT</code> 里面有几种动画背景样式 <code>canvas_nest</code> 、<code>three_waves</code>、<code>canvas_lines</code>、<code>canvas_sphere</code> 等.</p>
+<p>我们安装 <code>canvas_nest</code>  这款看看, 进入主题目录<code>/themes/next</code> 执行:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-canvas-nest source/lib/canvas-nest</span><br></pre></td></tr></table></figure>
+
+<p>配置文件中添加:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">canvas_nest:</span> </span><br><span class="line"> <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Travis-CI-脚本修改"><a href="#Travis-CI-脚本修改" class="headerlink" title="Travis-CI 脚本修改"></a>Travis-CI 脚本修改</h1><p>如有开启<code>Travis-CI</code>, 需要重写下脚本~~</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Weiba
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://xweiba.github.io/2020/09/25/Hexo-Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BC%98%E5%8C%96/" title="Hexo Next 主题设置优化">https://xweiba.github.io/2020/09/25/Hexo-Next-主题设置优化/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/Next%E4%B8%BB%E9%A2%98/" rel="tag"># Next主题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/25/Hexo-Typora-Markdown-%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%E8%AE%BE%E7%BD%AE/" rel="prev" title="Hexo + Typora Markdown 图片路径设置">
+      <i class="fa fa-chevron-left"></i> Hexo + Typora Markdown 图片路径设置
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E9%9C%80%E8%A6%81%E7%9A%84%E5%AF%BC%E8%88%AA%E6%A0%8F"><span class="nav-number">1.1.</span> <span class="nav-text">开启需要的导航栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%AF%B9%E5%BA%94%E7%9A%84%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.2.</span> <span class="nav-text">创建导航栏对应的页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schemes%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">Schemes方案设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Social-%E4%BF%AE%E6%94%B9"><span class="nav-number">1.4.</span> <span class="nav-text">Social 修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%B4%E5%83%8F%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.5.</span> <span class="nav-text">头像设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc%E8%BE%B9%E6%A0%8F%E4%B8%AD%E7%9A%84%E7%9B%AE%E5%BD%95%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.6.</span> <span class="nav-text">toc边栏中的目录设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Creative-Commons-4-0%E5%9B%BD%E9%99%85%E8%AE%B8%E5%8F%AF%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.7.</span> <span class="nav-text">Creative Commons 4.0国际许可设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E6%91%98%E5%BD%95"><span class="nav-number">1.8.</span> <span class="nav-text">开启自动摘录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B0%E4%BD%8F%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.9.</span> <span class="nav-text">记住位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.10.</span> <span class="nav-text">代码块设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%95%E9%83%A8%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.11.</span> <span class="nav-text">底部设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E6%A0%87"><span class="nav-number">1.12.</span> <span class="nav-text">标签页图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFpjax"><span class="nav-number">1.13.</span> <span class="nav-text">开启pjax</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">主题样式优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C%E5%92%8C%E5%9C%86%E8%A7%92"><span class="nav-number">2.1.</span> <span class="nav-text">主页文章添加阴影效果和圆角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%83%8C%E6%99%AF%E5%8A%A8%E7%94%BB%E6%A8%A1%E5%9D%97"><span class="nav-number">2.2.</span> <span class="nav-text">安装背景动画模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Travis-CI-%E8%84%9A%E6%9C%AC%E4%BF%AE%E6%94%B9"><span class="nav-number">3.</span> <span class="nav-text">Travis-CI 脚本修改</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Weiba"
+      src="https://avatars1.githubusercontent.com/u/24520686?s=400&u=78b21dec789dfb9c51379f11ae2722672546e3a6&v=4">
+  <p class="site-author-name" itemprop="name">Weiba</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xweiba" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xweiba" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:xiaoweiba1028@gmail.com" title="E-Mail → mailto:xiaoweiba1028@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weiba</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>
