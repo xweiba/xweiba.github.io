@@ -1,11 +1,13 @@
 ---
 title: Travis CI + Hexo 实现自动构建部署GitHub Pages
 date: 2020-09-25 10:22:02
-tags:
-
+tags: 
+ - Hexo
+ - Typora
+ - Travis CI
+categories: 
+ - Hexo
 ---
-
-
 
 > 参考[Travis CI 加 Hexo 实现自动构建部署 Github Pages 博客](https://segmentfault.com/a/1190000021987832) 配置
 

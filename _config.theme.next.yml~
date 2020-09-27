@@ -31,7 +31,7 @@ custom_file_path:
   #bodyEnd: source/_data/body-end.swig
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  style: source/_data/styles.styl
+  #style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -59,7 +59,7 @@ footer:
     # Icon name in Font Awesome. See: https://fontawesome.com/icons
     name: fa fa-heart
     # If you want to animate the icon, set it to true.
-    animated: true
+    animated: false
     # Change the color of icon, using Hex Code.
     color: "#ff0000"
 
@@ -87,8 +87,8 @@ footer:
 # CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
 creative_commons:
   license: by-nc-sa
-  sidebar: true
-  post: true
+  sidebar: false
+  post: false
   language:
 
 
@@ -97,10 +97,10 @@ creative_commons:
 # ---------------------------------------------------------------
 
 # Schemes
-#scheme: Muse
+scheme: Muse
 #scheme: Mist
 #scheme: Pisces
-scheme: Gemini
+#scheme: Gemini
 
 # Dark Mode
 darkmode: false
@@ -116,11 +116,16 @@ darkmode: false
 # When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -> archives).
 # External url should start with http:// or https://
 menu:
-  home: / || fa fa-home
-  about: /about/ || fa fa-user
-  tags: /tags/ || fa fa-tags
-  categories: /categories/ || fa fa-th
-  archives: /archives/ || fa fa-archive
+  #home: / || fa fa-home
+  home: / || home # 首页
+  #about: /about/ || fa fa-user
+  #tags: /tags/ || fa fa-tags
+  tags: /tags/ || tags # 标签
+  #categories: /categories/ || fa fa-th
+  categories: /categories/ || th # 分类
+  #archives: /archives/ || fa fa-archive
+  archives: /archives/ || archive # 归档
+  about: /about/ || user # 关于本站
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -163,12 +168,11 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  #url: #/images/avatar.gif
-  url: https://avatars1.githubusercontent.com/u/24520686?s=400&u=78b21dec789dfb9c51379f11ae2722672546e3a6&v=4
+  url: #/images/avatar.gif
   # If true, the avatar will be dispalyed in circle.
-  rounded: true
+  rounded: false
   # If true, the avatar will be rotated with the cursor.
-  rotated: true
+  rotated: false
 
 # Posts / Categories / Tags in sidebar.
 site_state: true
@@ -178,8 +182,8 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/xweiba || fab fa-github
-  E-Mail: mailto:xiaoweiba1028@gmail.com || fa fa-envelope
+  #GitHub: https://github.com/yourname || fab fa-github
+  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -191,8 +195,8 @@ social:
 
 social_icons:
   enable: true
-  icons_only: true
-  transition: true
+  icons_only: false
+  transition: false
 
 # Blog rolls
 links_settings:
@@ -235,13 +239,6 @@ chat:
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
 
-excerpt:
-  depth: 1
-  excerpt_excludes: []
-  more_excludes: []
-  hideWholePostExcerpts: false
-
-  
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
 read_more_btn: true
@@ -362,12 +359,12 @@ codeblock:
   # Code Highlight theme
   # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
   # See: https://github.com/chriskempson/tomorrow-theme
-  highlight_theme: galactic
+  highlight_theme: normal
   # Add copy button on codeblock
   copy_button:
-    enable: true
+    enable: false
     # Show text copy result.
-    show_result: true
+    show_result: false
     # Available values: default | flat | mac
     style:
 
@@ -520,9 +517,7 @@ math:
 
 # Easily enable fast Ajax navigation on your website.
 # Dependencies: https://github.com/theme-next/theme-next-pjax
-pjax: true
-
-save_scroll: true
+pjax: false
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
@@ -1005,10 +1000,3 @@ vendors:
 css: css
 js: js
 images: images
-canvas_nest: 
- enable: true
-  onmobile: true # display on mobile or not
-  color: '0,0,255' # RGB values, use ',' to separate
-  opacity: 0.5 # the opacity of line: 0~1
-  zIndex: -1 # z-index property of the background
-  count: 99 # the number of lines
