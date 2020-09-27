@@ -235,12 +235,9 @@ chat:
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
 
-excerpt:
-  depth: 1
-  excerpt_excludes: []
-  more_excludes: []
-  hideWholePostExcerpts: false
-
+auto_excerpt:
+  enable: true  #是否自动摘录。不推荐。
+  length: 10  #这里是说文章开头第一个字到第150个字就显示"阅读全文"
   
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
@@ -1006,7 +1003,7 @@ css: css
 js: js
 images: images
 canvas_nest: 
- enable: true
+  enable: true
   onmobile: true # display on mobile or not
   color: '0,0,255' # RGB values, use ',' to separate
   opacity: 0.5 # the opacity of line: 0~1
