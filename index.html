@@ -160,6 +160,78 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xweiba.github.io/2020/09/30/Idea-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90-PO-%E8%84%9A%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/24520686?s=400&u=78b21dec789dfb9c51379f11ae2722672546e3a6&v=4">
+      <meta itemprop="name" content="Weiba">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiba's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/30/Idea-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90-PO-%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">Idea 自动生成 PO 脚本</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-30 13:28:48 / 修改时间：13:33:30" itemprop="dateCreated datePublished" datetime="2020-09-30T13:28:48+08:00">2020-09-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>使用 <code>Groovy</code> 脚本生成对应的<code>PO</code>, 非 <code>Mybatis</code>逆向工程生成, </p>
+<p>来自: <a target="_blank" rel="noopener" href="https://juejin.im/post/6844903846452396039">IDEA – 自动生成POJO</a></p>
+</blockquote>
+<h1 id="Groovy脚本记录"><a href="#Groovy脚本记录" class="headerlink" title="Groovy脚本记录"></a>Groovy脚本记录</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.intellij.database.model.DasTable</span><br><span class="line"><span class="keyword">import</span> com.intellij.database.model.ObjectKind</span><br><span class="line"><span class="keyword">import</span> com.intellij.database.util.Case</span><br><span class="line"><span class="keyword">import</span> com.intellij.database.util.DasUtil</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.text.DateFormat</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Available context bindings:</span></span><br><span class="line"><span class="comment"> *   SELECTION   Iterable&lt;DasObject&gt;</span></span><br><span class="line"><span class="comment"> *   PROJECT     project</span></span><br><span class="line"><span class="comment"> *   FILES       files helper</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">packageName = <span class="string">&quot;com.xxx.po;&quot;</span>  <span class="comment">//这里要换成自己项目 实体的包路径</span></span><br><span class="line">typeMapping = [</span><br><span class="line">        (<span class="regexp">~/(?i)int/</span>)                      : <span class="string">&quot;Integer&quot;</span>,  <span class="comment">//数据库类型和Jave类型映射关系</span></span><br><span class="line">        (<span class="regexp">~/(?i)float|double|decimal|real/</span>): <span class="string">&quot;Double&quot;</span>,</span><br><span class="line">        (<span class="regexp">~/(?i)bool|boolean/</span>)             : <span class="string">&quot;Boolean&quot;</span>,</span><br><span class="line">        (<span class="regexp">~/(?i)datetime|timestamp/</span>)       : <span class="string">&quot;java.util.Date&quot;</span>,</span><br><span class="line">        (<span class="regexp">~/(?i)date/</span>)                     : <span class="string">&quot;java.sql.Date&quot;</span>,</span><br><span class="line">        (<span class="regexp">~/(?i)time/</span>)                     : <span class="string">&quot;java.sql.Time&quot;</span>,</span><br><span class="line">        (<span class="regexp">~/(?i)/</span>)                         : <span class="string">&quot;String&quot;</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">FILES.chooseDirectoryAndSave(<span class="string">&quot;Choose directory&quot;</span>, <span class="string">&quot;Choose where to store generated files&quot;</span>) &#123; dir -&gt;</span><br><span class="line">    SELECTION.filter &#123; it <span class="keyword">instanceof</span> DasTable &amp;&amp; it.getKind() == ObjectKind.TABLE &#125;.each &#123; generate(it, dir) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> generate(table, dir) &#123;</span><br><span class="line">    <span class="keyword">def</span> className = javaName(table.getName(), <span class="literal">true</span>) + <span class="string">&quot;PO&quot;</span></span><br><span class="line">    <span class="keyword">def</span> fields = calcFields(table)</span><br><span class="line">    <span class="keyword">new</span> File(dir, className + <span class="string">&quot;.java&quot;</span>).withPrintWriter(<span class="string">&quot;utf-8&quot;</span>) &#123; out -&gt; generate(out, table, className, fields) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> generate(out, table, className, fields) &#123;</span><br><span class="line">    <span class="keyword">def</span> tableName = table.getName()</span><br><span class="line">    out.println <span class="string">&quot;package $packageName&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;import lombok.*;&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;import javax.persistence.*;&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;/**&quot;</span></span><br><span class="line">    out.println <span class="string">&quot; * @author xxx&quot;</span></span><br><span class="line">    out.println <span class="string">&quot; **/&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;@Data&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;@Entity&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;@Table(name = \&quot;$tableName\&quot;)&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;public class $className &#123;&quot;</span></span><br><span class="line">    out.println <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="comment">// 这里如果需要生成id字段需要打开</span></span><br><span class="line">    <span class="keyword">if</span> ((tableName + <span class="string">&quot;_id&quot;</span>).equalsIgnoreCase(fields[<span class="number">0</span>].colum) || <span class="string">&quot;id&quot;</span>.equalsIgnoreCase(fields[<span class="number">0</span>].colum)) &#123;</span><br><span class="line">        out.println <span class="string">&quot;    @Id&quot;</span></span><br><span class="line">        out.println <span class="string">&quot;    @GeneratedValue(strategy=GenerationType.IDENTITY)&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    fields.each() &#123;</span><br><span class="line">        <span class="keyword">if</span> (it.comment != <span class="string">&quot;&quot;</span> &amp;&amp; it.comment != <span class="literal">null</span>) &#123;</span><br><span class="line">            out.println <span class="string">&quot;    /**&quot;</span></span><br><span class="line">            out.println <span class="string">&quot;      * $&#123;it.comment&#125;&quot;</span></span><br><span class="line">            out.println <span class="string">&quot;      **/&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (it.annos != <span class="string">&quot;&quot;</span>) out.println <span class="string">&quot;  $&#123;it.annos&#125;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> (it.colum != it.name) &#123;</span><br><span class="line">            out.println <span class="string">&quot;    @Column(name = \&quot;$&#123;it.colum&#125;\&quot;)&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        out.println <span class="string">&quot;    private $&#123;it.type&#125; $&#123;it.name&#125;;&quot;</span></span><br><span class="line">        out.println <span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    out.println <span class="string">&quot;&#125;&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> calcFields(table) &#123;</span><br><span class="line">    DasUtil.getColumns(table).reduce([]) &#123; fields, col -&gt;</span><br><span class="line">        <span class="keyword">def</span> spec = Case.LOWER.apply(col.getDataType().getSpecification())</span><br><span class="line">        <span class="keyword">def</span> typeStr = typeMapping.find &#123; p, t -&gt; p.matcher(spec).find() &#125;.value</span><br><span class="line">        fields += [[</span><br><span class="line">                           <span class="attr">name   :</span> javaName(col.getName(), <span class="literal">false</span>),</span><br><span class="line">                           <span class="attr">colum  :</span> col.getName(),</span><br><span class="line">                           <span class="attr">type   :</span> typeStr,</span><br><span class="line">                           <span class="symbol">comment:</span> col.getComment(),</span><br><span class="line">                           <span class="attr">annos  :</span> <span class="string">&quot;&quot;</span>]]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> javaName(str, capitalize) &#123;</span><br><span class="line">    <span class="keyword">def</span> s = str.split(<span class="regexp">/(?&lt;=[^\p&#123;IsLetter&#125;])/</span>).collect &#123; Case.LOWER.apply(it).capitalize() &#125;</span><br><span class="line">            .join(<span class="string">&quot;&quot;</span>).replaceAll(<span class="regexp">/[^\p&#123;javaJavaIdentifierPart&#125;]/</span>, <span class="string">&quot;_&quot;</span>).replaceAll(<span class="regexp">/_/</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">    capitalize || s.length() == <span class="number">1</span> ? s : Case.LOWER.apply(s[<span class="number">0</span>]) + s[<span class="number">1.</span>.<span class="number">-1</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/30/Idea-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90-PO-%E8%84%9A%E6%9C%AC/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://xweiba.github.io/2020/09/29/Linux-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-ElasticSearch-2-4-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -183,10 +255,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-09-29 16:01:01 / 修改时间：17:26:12" itemprop="dateCreated datePublished" datetime="2020-09-29T16:01:01+08:00">2020-09-29</time>
+              <time title="创建时间：2020-09-29 16:01:01" itemprop="dateCreated datePublished" datetime="2020-09-29T16:01:01+08:00">2020-09-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-30 13:33:30" itemprop="dateModified" datetime="2020-09-30T13:33:30+08:00">2020-09-30</time>
+              </span>
 
           
 
@@ -266,7 +344,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-29 17:26:12" itemprop="dateModified" datetime="2020-09-29T17:26:12+08:00">2020-09-29</time>
+                <time title="修改时间：2020-09-30 13:33:30" itemprop="dateModified" datetime="2020-09-30T13:33:30+08:00">2020-09-30</time>
               </span>
 
           
@@ -348,7 +426,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-29 17:26:12" itemprop="dateModified" datetime="2020-09-29T17:26:12+08:00">2020-09-29</time>
+                <time title="修改时间：2020-09-30 13:33:30" itemprop="dateModified" datetime="2020-09-30T13:33:30+08:00">2020-09-30</time>
               </span>
 
           
@@ -430,7 +508,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-29 17:26:12" itemprop="dateModified" datetime="2020-09-29T17:26:12+08:00">2020-09-29</time>
+                <time title="修改时间：2020-09-30 13:33:30" itemprop="dateModified" datetime="2020-09-30T13:33:30+08:00">2020-09-30</time>
               </span>
 
           
@@ -510,7 +588,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-29 17:26:12" itemprop="dateModified" datetime="2020-09-29T17:26:12+08:00">2020-09-29</time>
+                <time title="修改时间：2020-09-30 13:33:30" itemprop="dateModified" datetime="2020-09-30T13:33:30+08:00">2020-09-30</time>
               </span>
 
           
@@ -585,7 +663,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-29 17:26:12" itemprop="dateModified" datetime="2020-09-29T17:26:12+08:00">2020-09-29</time>
+                <time title="修改时间：2020-09-30 13:33:30" itemprop="dateModified" datetime="2020-09-30T13:33:30+08:00">2020-09-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -678,7 +756,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-29 17:26:12" itemprop="dateModified" datetime="2020-09-29T17:26:12+08:00">2020-09-29</time>
+                <time title="修改时间：2020-09-30 13:33:30" itemprop="dateModified" datetime="2020-09-30T13:33:30+08:00">2020-09-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -804,7 +882,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -813,7 +891,7 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
