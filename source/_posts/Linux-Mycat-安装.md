@@ -11,6 +11,8 @@ tags:
 >
 > 以下内容参考至官方文档: [https://github.com/MyCATApache/Mycat-Server/wiki](https://github.com/MyCATApache/Mycat-Server/wiki)
 
+<!--more-->
+
 # 下载 Mycat
 
 官网下载后解压即可.

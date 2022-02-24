@@ -8,6 +8,8 @@ tags:
 
 > demo新环境, 非`Docker`记录一下~
 
+<!--more-->
+
 # 下载JDK8
 
 `Oracle` 下载需要注册, 直接去`github`上下载~~ 

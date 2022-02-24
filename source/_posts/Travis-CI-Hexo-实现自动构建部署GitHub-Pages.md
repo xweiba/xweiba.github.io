@@ -15,6 +15,8 @@ categories:
 - Git 客户端
 - node npm
 
+<!--more-->
+
 请先 `cd` 至创建项目的目录
 
 # 安装 Hexo
