@@ -116,7 +116,9 @@ excerpt:
   
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
+deploy: 
   type: git
   repo: git@github.com:xweiba/xweiba.github.io.git
   branch: master
+  name: xweiba
+  email: xiaoweiba1028@gmail.com
