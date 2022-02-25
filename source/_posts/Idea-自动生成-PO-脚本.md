@@ -10,9 +10,7 @@ tags:
 >
 > 来自: [IDEA -- 自动生成POJO](https://juejin.im/post/6844903846452396039)
 
-<!--more-->
-
-# Groovy脚本记录
+## Groovy脚本记录
 
 ```groovy
 import com.intellij.database.model.DasTable

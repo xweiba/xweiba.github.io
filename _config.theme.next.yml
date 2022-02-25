@@ -117,10 +117,10 @@ darkmode: false
 # External url should start with http:// or https://
 menu:
   home: / || fa fa-home
-  about: /about/ || fa fa-user
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
+  #about: /about/ || fa fa-user
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -128,7 +128,7 @@ menu:
 # Enable / Disable menu icons / item badges.
 menu_settings:
   icons: true
-  badges: false
+  badges: true
 
 
 # ---------------------------------------------------------------
@@ -236,8 +236,8 @@ chat:
 excerpt_description: true
 
 auto_excerpt:
-  enable: true  #是否自动摘录。不推荐。
-  length: 10  #这里是说文章开头第一个字到第150个字就显示"阅读全文"
+  enable: true  #脢脟路帽脳脭露炉脮陋脗录隆拢虏禄脥脝录枚隆拢
+  length: 10  #脮芒脌茂脢脟脣碌脦脛脮脗驴陋脥路碌脷脪禄赂枚脳脰碌陆碌脷150赂枚脳脰戮脥脧脭脢戮"脭脛露脕脠芦脦脛"
   
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
@@ -373,7 +373,7 @@ back2top:
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:

@@ -237,7 +237,7 @@ excerpt_description: true
 
 auto_excerpt:
   enable: true  #是否自动摘录。不推荐。
-  length: 10  #这里是说文章开头第一个字到第150个字就显示"阅读全文"
+  length: 150  #这里是说文章开头第一个字到第150个字就显示"阅读全文"
   
 # Read more button
 # If true, the read more button will be displayed in excerpt section.

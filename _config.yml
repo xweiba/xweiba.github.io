@@ -99,7 +99,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 #theme: landscape
-theme: suka
+theme: next
 
 search:
   path: search.xml
@@ -111,12 +111,10 @@ search:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
-suka_theme:
-  search:
-    enable: true
-    path: search.json
-    field: post # Page | Post | All. Default post
-  prism:
-    enable: false
-    line_number: true
-    theme: default
+
+# npm install hexo-excerpt --save
+excerpt:
+  depth: 5  #按层来算，也就是按代码块来算
+  excerpt_excludes: []
+  more_excludes: []
+  hideWholePostExcerpts: true
