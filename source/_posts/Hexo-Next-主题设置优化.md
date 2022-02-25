@@ -12,11 +12,11 @@ tags:
 
 # 主题配置
 
-已下修改不做说明时都为 `theme/next/_config.yaml` 文件, 直接用`vim`或其他编辑器修改, 保存即可生效, 不用重启 `hexo`
+ `next` 配置为 `theme/next/_config.yaml` 文件, 直接用`vim`或其他编辑器修改, 保存即可生效, 不用重启 `hexo`
 
 ## 开启需要的导航栏
 
-在配置中找到 `menu` 看看自己博客所需的导航栏, 需要开启的将头部 `#` 号删除即可.
+在 `next` 配置中找到 `menu` 看看自己博客所需的导航栏, 需要开启的将头部 `#` 号删除即可.
 
 ```yaml
 menu:
@@ -130,7 +130,7 @@ toc:
 获取 `theme-next-pjax` 主题插件：
 
 ```shell
-git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax
+git clone https://github.com/theme-next/theme-next-pjax themes/next/source/lib/pjax
 ```
 
 修改 `next` 配置:
@@ -169,7 +169,7 @@ local_search:
 
 在 `hexo` 根目录安装标签云依赖：`npm install -save hexo-tag-cloud`
 
-编辑主题模板文件，添加标签云：xxxxxx
+编辑主题模板文件 `themes/next/layout/_macro/sidebar.swig` ，添加标签云：
 
 ```html
 {% if site.tags.length > 1 %}
@@ -233,7 +233,7 @@ reading_progress:
 获取 `theme-next-pace` 主题插件：
 
 ```shell
-git clone https://github.com/theme-next/theme-next-pace source/lib/pace
+git clone https://github.com/theme-next/theme-next-pace themes/next/source/lib/pace
 ```
 
 开启 `next` 配置:
@@ -450,21 +450,13 @@ branches:
     - source # 只监控 source 的 branch
 before_script: ## 根据你所用的主题和自定义的不同，这里会有所不同
   - npm install -g hexo-cli # 在 CI 环境内安装 Hexo
-  - mkdir themes # 由于我们没有将 themes/ 上传，所以我们需要新建一个
-  - cd themes 
-  - git clone https://github.com/theme-next/hexo-theme-next next #从 Github 上拉取 next 主题
-  - cd next
-  - npm install --production # 安装 next 主题的依赖
-  - git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax # 安装pjax
-  - git clone https://github.com/theme-next/theme-next-canvas-nest source/lib/canvas-nest # 安装背景动画
-  - cd ../.. # 返回站点根目录
-  - cp _config.theme.yaml themes/next/_config.yaml # 将主题的配置文件放回原处    
-  - npm install # 在根目录安装站点需要的依赖 
-  - hexo new page about   #看看menu上还有什么标签没创建就行创建
-  - hexo new page tags    #创建标签
-  - hexo new page categories #创建分类
-  - hexo new page achives #创建归档
-  - npm install hexo-excerpt --save # 开启自动摘录
+  - npm install # 安装 hexo 依赖
+  - git clone https://github.com/theme-next/hexo-theme-next themes/next # 安装 next 主题
+  - cp -rf next_tage_cloud_sidebar.swig themes/next/layout/_macro/sidebar.swig # 添加标签云 layout
+  - git clone https://github.com/theme-next/theme-next-pjax themes/next/source/lib/pjax # 安装 pjax 插件
+  - git clone https://github.com/theme-next/theme-next-pace themes/next/source/lib/pace # 安装阅读进度
+  - git clone https://github.com/theme-next/theme-next-canvas-nest themes/next/source/lib/canvas-nest # 安装几何动效插件
+  - cp -rf _config.theme.next.yml themes/next/_config.yml # 设置 next 主题配置
 script: 
   - hexo generate # generate static files
 deploy: # 根据个人情况，这里会有所不同
