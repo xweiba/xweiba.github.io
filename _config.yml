@@ -107,18 +107,16 @@ search:
   format: html
   limit: 10000
 
-# Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  repo: git@github.com:xweiba/xweiba.github.io.git
-  branch: master
-  name: xweiba
-  email: xiaoweiba1028@gmail.com
-
 # npm install hexo-excerpt --save
 excerpt:
   depth: 5  #按层来算，也就是按代码块来算
   excerpt_excludes: []
   more_excludes: []
   hideWholePostExcerpts: true
+  
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: git
+  repo: git@github.com:xweiba/xweiba.github.io.git
+  branch: master
