@@ -1,5 +1,5 @@
 ---
-title: Windows Git和CMD 的命令行代理设置
+title: Windows Git 和 CMD 终端代理设置
 date: 2022-02-28 10:10:42
 tags:
  - Git
