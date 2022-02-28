@@ -117,7 +117,7 @@ jobs:
       # 生成并部署
       - name: Deploy
         run: |
-          npx hexo clean && npx hexo generate && npx hexo deploy
+          npx hexo clean && npx hexo d -g 
 ```
 
 ## 部署
