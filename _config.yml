@@ -109,7 +109,7 @@ search:
 
 # npm install hexo-excerpt --save
 excerpt:
-  depth: 5  #按层来算，也就是按代码块来算
+  depth: 6  #按层来算，也就是按代码块来算
   excerpt_excludes: []
   more_excludes: []
   hideWholePostExcerpts: true
