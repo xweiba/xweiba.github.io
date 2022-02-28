@@ -11,7 +11,7 @@ categories:
 
 ---
 
-> 很久没更新博客了，今天想更新一下发现构建失败了，看了下是因为 `Travis CI` 开始收费了，免费额度用完了，正好现在流行 `GitHub Actions`, 切换过来了. 没用过 `GitHub Actions`, 这里使用的 `Workflow` 是基于 [使用 GitHub Actions 自动部署 Hexo 博客](https://printempw.github.io/use-github-actions-to-deploy-hexo-blog/) 的, 感谢大大.
+> 很久没更新博客了，今天想更新一下发现构建失败，看了下是因为 `Travis CI` 开始商业化了，我的免费额度早就用完了，正好现在都在玩 `GitHub Actions`, 切换过来了.  使用的 `Workflow` 是基于 [使用 GitHub Actions 自动部署 Hexo 博客](https://printempw.github.io/use-github-actions-to-deploy-hexo-blog/) 的, 感谢大大.
 
 仓库和 `Travis CI` 时一样，`master` 为部署分支，`source` 分支为博客构建分支，`blog` 都在这里面。
 
