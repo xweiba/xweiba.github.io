@@ -4,6 +4,8 @@ date: 2020-09-30 13:28:48
 tags: 
  - Idea
  - Java
+categories:
+ - Idea
 ---
 
 > 使用 `Groovy` 脚本生成对应的`PO`, 非 `Mybatis`逆向工程生成, 

@@ -5,6 +5,8 @@ tags:
  - Linux
  - Mycat
  - _mycat_op_time
+categories:
+ - Mycat
 ---
 
 > 最近有个数据迁移需求, 量比较大, 搞个新环境测试下~ 

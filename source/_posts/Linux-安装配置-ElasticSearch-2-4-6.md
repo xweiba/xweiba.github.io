@@ -1,12 +1,14 @@
 ---
-title: Linux 安装配置 ElasticSearch-2.4.6
+title: Linux 安装配置 Elasticsearch-2.4.6
 date: 2020-09-29 16:01:01
 tags: 
  - Linux
+ - Elasticsearch
+categories:
  - ElasticSearch
 ---
 
-> ES最新版已经到7.x了,  想用最新版啊, 多了很多特性.但是这个环境是做业务测试的, 原来用的就是 `2.4.6` , 防止出问题, 延续了.
+> ES最新版已经到 `7.x` 了,  想用最新版啊, 多了很多特性.但是这个环境是做业务测试的, 原来用的就是 `2.4.6` , 防止出问题, 延续了.
 
 #  下载安装
 

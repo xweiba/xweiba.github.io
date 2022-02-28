@@ -4,6 +4,9 @@ date: 2020-09-25 14:36:48
 tags: 
  - Hexo 
  - Next主题
+categories:
+ - Hexo 
+ - Next
 ---
 
 >  `next` 主题相当有名, 不过默认配置看起来略微单调. 搜索了一下, 觉得这篇  [使用 Github 空间搭建 Hexo 技术博客——使用NexT优化博客](https://blog.csdn.net/wugenqiang/article/details/88373990)  相当不错, 记录一下.

@@ -4,6 +4,8 @@ date: 2020-09-28 11:03:07
 tags: 
  - Linux
  - JDK8
+categories:
+ - JDK
 ---
 
 > demo新环境, 非`Docker`记录一下~

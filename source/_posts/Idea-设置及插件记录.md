@@ -3,6 +3,8 @@ title: Idea 设置及插件记录
 date: 2020-10-14 09:30:19
 tags:
  - Idea
+categories:
+ - Idea
 ---
 
 >  记录下新环境的配置
