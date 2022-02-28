@@ -1,5 +1,5 @@
 ---
-title: 将hexo自动构建部署从Travis CI迁移至GitHub Actions
+title: hexo自动构建部署从Travis CI迁移至GitHub Actions
 date: 2022-02-28 09:31:34
 tags:
  - hexo
