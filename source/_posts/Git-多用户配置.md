@@ -13,7 +13,7 @@ tags:
 > - [Git 多用户配置 - 苍青浪](https://www.cnblogs.com/cangqinglang/p/12462272.html)
 > - [在git-bash启动时启用SSH Agent | 工程师](https://www.angtylook.com/2021/07/11/ssh-agnt.html)
 
-### 1. 配置各环境秘钥对
+###  配置各环境秘钥对
 
 钥对的保存位置默认在 ~/.ssh 目录下，使用一下命令生成
 
@@ -28,7 +28,7 @@ ssh-keygen -t rsa -C “xxxx@xxx.com” # 公司邮箱
 
 将生成的 `_pub` 后缀的公钥文件内容复制至 `GitHub` 和 `GitLab` 的 ` SSH Keys` 中。
 
-### 2. 添加到 `SSH-Agent` 中
+### 添加到 `SSH-Agent` 中
 
 在上一步中，我们已经将公钥添加到了 `GitHub`  或者 `GitLab`  服务器上，我们还需要将私钥添加到本地中，不然无法使用。
 
@@ -40,7 +40,7 @@ ssh-add ~/.ssh/id_rsa_github
 ssh-add ~/.ssh/id_rsa_gitlab
 ```
 
-### 3. 管理秘钥
+### 管理秘钥
 
 通过以上步骤，公钥、密钥分别被添加到 git 服务器和本地了。下面我们需要在本地创建一个密钥配置文件，通过该文件，实现根据仓库的 `remote` 链接地址自动选择合适的私钥。
 
@@ -70,7 +70,7 @@ ssh -T git@gitlab-xxx.com
 Welcome to GitLab, xxxxxx!
 ```
 
-### 4.仓库配置
+### 仓库配置
 
 完成以上配置后，其实你已经基本完成了所有配置。分别进入附属于 `GitHub` 和 `GitLab` 的仓库，此时都可以进行 `git` 操作了。但是别急，如果你此时提交仓库修改后，你会发现提交的用户名变成了你的系统主机名。
 
@@ -91,7 +91,7 @@ git config --local user.email "xx@gmail.com"
 
 至此你已经配置好了 `Local` 级别的配置了，此时提交该仓库的代码，提交用户名就是你设置的 `Local` 级别的用户名了。
 
-### 5.添加 `Git-Bash` 启动脚本
+### 添加 `Git-Bash` 启动脚本
 
 由于 `ssh-agent` 是存放在高速缓存中的，重启后添加的 `ssh-add` 就会失效，这里直接在 `git-bash` 的 `bash_profile` 中添加：
 
