@@ -46,11 +46,69 @@ ssh-add ~/.ssh/id_rsa_gitlab
 
 通过以上步骤，公钥、密钥分别被添加到 git 服务器和本地了。下面我们需要在本地创建一个密钥配置文件，通过该文件，实现根据仓库的 `remote` 链接地址自动选择合适的私钥。
 
-编辑 `~/.ssh` 目录下的 `config` 文件
+编辑 `~/.ssh` 目录下的 `config` 文件, `vim ~/.ssh/config`
 
 ```bash
-vim ~/.ssh/config
+Host github.com
+    HostName github.com
+    User xxxx
+    IdentityFile ~/.ssh/id_rsa_github
+    HostkeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+Host gitlab-xxx.com
+    HostName gitlab-xxx.com
+    User xxxxxx
+    IdentityFile ~/.ssh/id_rsa_gitlab
+    HostkeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
 ```
 
+测试：
 
+```bash
+ssh -T git@github.com
+Hi xxxx! You've successfully authenticated, but GitHub does not provide shell access.
+ssh -T git@gitlab-xxx.com
+Welcome to GitLab, xxxxxx!
+```
 
+#### 4.仓库配置
+
+完成以上配置后，其实你已经基本完成了所有配置。分别进入附属于 `GitHub` 和 `GitLab` 的仓库，此时都可以进行 `git` 操作了。但是别急，如果你此时提交仓库修改后，你会发现提交的用户名变成了你的系统主机名。
+
+这是因为 git 的配置分为三级别，`System —> Global —>Local`。`System` 即系统级别，`Global` 为配置的全局，`Local` 为仓库级别，优先级是 `Local > Global > System`。
+
+因为我们并没有给仓库配置用户名，又在一开始清除了全局的用户名，因此此时你提交的话，就会使用 `System` 级别的用户名，也就是你的系统主机名了。
+
+因此我们需要为每个仓库单独配置用户名信息，假设我们要配置 `Github` 的某个仓库，进入该仓库后，执行：
+
+```
+git config --local user.name "xxx"
+git config --local user.email "xx@gmail.com"
+```
+
+执行完毕后，通过以下命令查看本仓库的所有配置信息：
+
+`git config --local --list`
+
+至此你已经配置好了 `Local` 级别的配置了，此时提交该仓库的代码，提交用户名就是你设置的 `Local` 级别的用户名了。
+
+### 5.添加 `Git-Bash` 启动脚本
+
+由于 `ssh-agent` 是存放在高速缓存中的，重启后添加的 `ssh-add` 就会失效，这里直接在 `git-bash` 的 `bash_profile` 中添加：
+
+```bash
+# windows默认会生成该文件
+test -f ~/.profile && . ~/.profile
+test -f ~/.bashrc && . ~/.bashrc
+```
+
+在 `.bashrc` 中添加：
+
+```shell
+eval `ssh-agent` > /dev/null
+ssh-add ~/.ssh/id_rsa_github > /dev/null
+ssh-add ~/.ssh/id_rsa_xuechuang > /dev/null
+```
+
+每次启动 `git-bash` 都会自动启动并添加。
