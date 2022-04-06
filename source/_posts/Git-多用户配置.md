@@ -112,5 +112,3 @@ ssh-add ~/.ssh/id_rsa_xuechuang > /dev/null
 ```
 
 每次启动 `git-bash` 都会自动启动并添加。
-
-test
