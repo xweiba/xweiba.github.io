@@ -83,7 +83,7 @@ public final class $Proxy0 extends Proxy implements IUserManager {
 }
 ```
 
-## CGLib代理
+## `CGLib` 代理
 
 ## 特点：
 
@@ -143,6 +143,7 @@ public class UserManager$$EnhancerByCGLIB$$ddf60d63 extends UserManager implemen
     static void CGLIB$STATICHOOK1() {
         CGLIB$THREAD_CALLBACKS = new ThreadLocal();
         CGLIB$emptyArgs = new Object[0];
+        // var0 是当前类
         Class var0 = Class.forName("io.github.xweiba.proxy.impl.UserManager$$EnhancerByCGLIB$$ddf60d63");
         Class var1;
         Method[] var10000 = ReflectUtils.findMethods(new String[]{"equals", "(Ljava/lang/Object;)Z", "toString", "()Ljava/lang/String;", "hashCode", "()I", "clone", "()Ljava/lang/Object;"}, (var1 = Class.forName("java.lang.Object")).getDeclaredMethods());
@@ -154,8 +155,10 @@ public class UserManager$$EnhancerByCGLIB$$ddf60d63 extends UserManager implemen
         CGLIB$hashCode$5$Proxy = MethodProxy.create(var1, var0, "()I", "hashCode", "CGLIB$hashCode$5");
         CGLIB$clone$6$Method = var10000[3];
         CGLIB$clone$6$Proxy = MethodProxy.create(var1, var0, "()Ljava/lang/Object;", "clone", "CGLIB$clone$6");
+        // 注意这里是被代理的class var1 = Class.forName("io.github.xweiba.proxy.impl.UserManager")).getDeclaredMethods()
         var10000 = ReflectUtils.findMethods(new String[]{"add", "(Ljava/lang/String;)V", "noITest", "(Ljava/lang/String;)V", "updata", "(Ljava/lang/String;)V"}, (var1 = Class.forName("io.github.xweiba.proxy.impl.UserManager")).getDeclaredMethods());
         CGLIB$add$0$Method = var10000[0];
+        // 传入被代理的class的方法信息和当前class，当执行MethodInterceptor的intercept接口时会传入CGLIB$add$0$Proxy，调用CGLIB$add$0$Proxy的invokeSuper
         CGLIB$add$0$Proxy = MethodProxy.create(var1, var0, "(Ljava/lang/String;)V", "add", "CGLIB$add$0");
         CGLIB$noITest$1$Method = var10000[1];
         CGLIB$noITest$1$Proxy = MethodProxy.create(var1, var0, "(Ljava/lang/String;)V", "noITest", "CGLIB$noITest$1");
@@ -415,6 +418,85 @@ public class UserManager$$EnhancerByCGLIB$$ddf60d63 extends UserManager implemen
 
     static {
         CGLIB$STATICHOOK1();
+    }
+}
+```
+
+## 反射相关方法
+
+```java
+public static MethodProxy create(Class c1, Class c2, String desc, String name1, String name2) {
+    MethodProxy proxy = new MethodProxy();
+    proxy.sig1 = new Signature(name1, desc);
+    proxy.sig2 = new Signature(name2, desc);
+    // cglib 中，c1为被代理类的class，c2为cglib生成的class(c1的子类)
+    proxy.createInfo = new MethodProxy.CreateInfo(c1, c2);
+    return proxy;
+}
+private static class CreateInfo {
+    // cglib 中，c1为被代理类的class，c2为cglib生成的class
+    Class c1;
+    Class c2;
+    NamingPolicy namingPolicy;
+    GeneratorStrategy strategy;
+    boolean attemptLoad;
+
+    public CreateInfo(Class c1, Class c2) {
+        this.c1 = c1;
+        this.c2 = c2;
+        AbstractClassGenerator fromEnhancer = AbstractClassGenerator.getCurrent();
+        if (fromEnhancer != null) {
+            this.namingPolicy = fromEnhancer.getNamingPolicy();
+            this.strategy = fromEnhancer.getStrategy();
+            this.attemptLoad = fromEnhancer.getAttemptLoad();
+        }
+
+    }
+}
+private void init() {
+    if (this.fastClassInfo == null) {
+        synchronized(this.initLock) {
+            if (this.fastClassInfo == null) {
+                MethodProxy.CreateInfo ci = this.createInfo;
+                MethodProxy.FastClassInfo fci = new MethodProxy.FastClassInfo();
+                // f1 由 c1 生成
+                fci.f1 = helper(ci, ci.c1);
+                // f2 由 c2 生成
+                fci.f2 = helper(ci, ci.c2);
+                fci.i1 = fci.f1.getIndex(this.sig1);
+                fci.i2 = fci.f2.getIndex(this.sig2);
+                this.fastClassInfo = fci;
+                this.createInfo = null;
+            }
+        }
+    }
+
+}
+public Object invoke(Object obj, Object[] args) throws Throwable {
+        try {
+            this.init();
+            MethodProxy.FastClassInfo fci = this.fastClassInfo;
+            // 在cglib中调用被代理类c1的方法对象的invoke方法
+            return fci.f1.invoke(fci.i1, obj, args);
+        } catch (InvocationTargetException var4) {
+            throw var4.getTargetException();
+        } catch (IllegalArgumentException var5) {
+            if (this.fastClassInfo.i1 < 0) {
+                throw new IllegalArgumentException("Protected method: " + this.sig1);
+            } else {
+                throw var5;
+            }
+        }
+    }
+
+public Object invokeSuper(Object obj, Object[] args) throws Throwable {
+    try {
+        this.init();
+        MethodProxy.FastClassInfo fci = this.fastClassInfo;
+        // 在cglib中调用被代理类c2(c1的子类)的方法对象的invoke方法，会通过方法的hashcode来定位最终执行的方法。
+        return fci.f2.invoke(fci.i2, obj, args);
+    } catch (InvocationTargetException var4) {
+        throw var4.getTargetException();
     }
 }
 ```
