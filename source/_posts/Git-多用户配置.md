@@ -3,7 +3,8 @@ title: Git 多用户配置
 date: 2022-04-06 11:01:39
 tags:
   - Git
- 
+categories:
+  - Git
 ---
 
 > 公司部署了私有 `GitLab`, 在公司更新个人的 `GitHub` 项目的时候非常麻烦，好在 `Git` 是支持多用户的，记录一下。

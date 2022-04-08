@@ -5,7 +5,8 @@ tags:
  - CGLib
  - JDK代理
  - 反射
-
+categories:
+ - Java
 ---
 
 ## JDK代理
