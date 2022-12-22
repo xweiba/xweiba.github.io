@@ -1,14 +1,13 @@
 ---
-title: 大地视频APP API破解
+title: xx视频APP API破解
 date: 2022-12-22 18:51:51
-tags:
+tags: 
+ - Android
  - 破解
  - API
- - 视频
+ - 视频 
 categories:
- - Android
  - 反编译
- - 破解
 ---
 
 > xx视频是一个在线观看视频的APP, 速度非常快, 清晰度也够看, 就是有点瑟瑟的广告, 今天闲着没事我瞅瞅他的api, 看能不能白嫖一波.
