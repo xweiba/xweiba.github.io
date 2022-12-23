@@ -101,3 +101,9 @@ OkHttpClient.Builder addInterceptor = RetrofitUrlManager.getInstance().with(new 
 
 接下来就是复刻他的请求了~~~
 
+
+
+# 后续
+
+这个APP关键的视频部分通过lib加壳了, 什么时候有时间再搞搞脱壳 哈哈
+
