@@ -47,7 +47,7 @@ start.sh
 ```shell
 #!/bin/bash
 if [ ! -d "/usr/local/xweiba.github.io" ]; then
-  git clone -b source https://github.com/xweiba/xweiba.github.io.git&&npm config set registry https://registry.npmmirror.com&&npm install hexo-cli -g && npm install -g browser-sync
+  git clone -b source https://github.com/xweiba/xweiba.github.io.git&&npm config set registry https://registry.npmmirror.com&&npm install hexo-cli -g
 fi
 cd /usr/local/xweiba.github.io
 git pull --force&&npm install&&hexo clean&&hexo s
@@ -100,31 +100,3 @@ alpine 镜像的 cron 功能应该是废的, 直接在宿主机上执行, 半小
 # crontab -e
 */30 * * * * docker exec -it hexo bash -c "cd /usr/local/xweiba.github.io&&git pull --force"
 ```
-
-# Hexo 添加自动刷新插件
-
-## 1. 安装 Browsersync
-
-在任意目录下执行
-
-```bash
-npm install -g browser-sync
-```
-
-安装完成后利用 `browser-sync --version` 来检测是否安装成功
-
-## 2. 安装 Hexo 插件
-
-在 Hexo 目录下执行
-
-```bash
-npm install hexo-browsersync --save
-```
-
-开启https支持
-
-```
-browsersync:
-  https: true
-```
-
