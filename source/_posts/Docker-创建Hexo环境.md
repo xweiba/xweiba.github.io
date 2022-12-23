@@ -30,8 +30,10 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN unset http_proxy && unset https_proxy
 
-# 声明项目所用端口
+# hexo端口
 EXPOSE 4000
+# 浏览器自动刷新端口
+EXPOSE 3000
 
 # 这个脚本后面可以自己替换
 COPY start.sh /usr/local/start.sh
@@ -62,7 +64,8 @@ docker build -t wb-hexo:v1 .
 启动, 第一次会比较慢, 后面就好了
 
 ```bash
-docker run -it --name="hexo" -p 4000:4000 wb-hexo:v1
+docker run -itd --name hexo -p 4000:4000 -p 4000:4000 --restart always wb-hexo:v1
+docker container logs -f hexo
 ```
 # 添加Nginx配置
 
@@ -116,5 +119,12 @@ npm install -g browser-sync
 
 ```bash
 npm install hexo-browsersync --save
+```
+
+开启https支持
+
+```
+browsersync:
+  https: true
 ```
 

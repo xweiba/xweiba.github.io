@@ -113,6 +113,9 @@ excerpt:
   excerpt_excludes: []
   more_excludes: []
   hideWholePostExcerpts: true
+
+browsersync:
+  https: true
   
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
