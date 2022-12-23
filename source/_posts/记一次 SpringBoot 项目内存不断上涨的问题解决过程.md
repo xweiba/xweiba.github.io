@@ -1,5 +1,5 @@
 ---
-title: 
+title: 记一次 SpringBoot 项目内存不断上涨的问题解决过程
 date: 2019-08-30 13:22:51
 tags:
  - SpringBoot
@@ -7,8 +7,6 @@ tags:
 categories:
  - SpringBoot
 ---
-
-[TOC]
 
 > 最近刚使用上 opencv 做图像处理, 部署后发现每次调完业务代码 RES 都会上涨近 300M, 测试环境测了两天, RES 已经到 11G 了, 开始以为是内存泄露, 各种释放对象, 然而没卵用...
 
