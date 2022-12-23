@@ -1,4 +1,15 @@
+---
+title: Spring-Bean的生命周期
+date: 2020-12-23 15:46:50
+tags:
+ - Spring
+ - Bean
+categories:
+ - Spring
+---
+
 # Spring-AnnotationApplicationContext 核心注入流程
+
 在构造方法执行完毕时, 容器就已经创建好了.
 
 ## 1. AnnotatedBeanDefinitionReader
@@ -18,7 +29,7 @@
 ### 4.1 
 
 2. 在BeanFactory初始化完毕后开始处理 BeanDefinitionRegistrarPostProcessor, 调用 ConfigurationClassPostProcessor 的 postProcessorBeanDefinitionRegister 接口, 解析 AppConfig.class 配置类, 并将其注入为 bean.
-  2.1 通过 ConfigurationClassParser
+    2.1 通过 ConfigurationClassParser
 
 
 FactoryBean是一个包装了对象的Bean, 他会生成两个Beandefinition, 创建两个Bean, 一个是他本身A, 还有一个是他getObject()接口返回的对象B, 他与@Bean注解到方法上的的区别就是, 他在A对象创建Bean时, 不会调用Spring创建Bean生命周期的全部方法, 只会调用BeanPostProcessor的before方法, 因为要通过这个创建动态代理. A对象撞见Bean时会调用, B对象创建Bean时不会调用, 因为B对象是在A对象doCreateBean过程中创建的.
