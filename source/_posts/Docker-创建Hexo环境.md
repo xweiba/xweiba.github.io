@@ -59,6 +59,8 @@ git pull --force&&npm install&&hexo clean&&hexo s
 docker build -t wb-hexo:v1 .
 ```
 
+![image-20221224012313433](Docker-%E5%88%9B%E5%BB%BAHexo%E7%8E%AF%E5%A2%83/image-20221224012313433.png)
+
 启动, 第一次会比较慢, 后面就好了
 
 ```bash
