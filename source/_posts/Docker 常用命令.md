@@ -21,14 +21,27 @@ categories:
 
 # 镜像相关
 - `docker image ls` - 列出已下载的镜像
+
 - `docker image ls -f dangling=true` - 查看虚悬镜像， 有的镜像更新后可能会出现既没有仓库名，也没有标签，均为 <none>，称为虚悬镜像，可用此命令查看
+
 - `docker image prune` - 一般来说，虚悬镜像已经失去了存在的价值，是可以随意删除的，可以用此命令删除。
+
 - `docker rm $(docker ps -aq)` - 删除所有镜像
+
 - `docker rm -v` - 删除镜像时同事删除其数据卷
+
 - `docker rmi $(docker images -q)` - 删除所有镜像
+
 - `docker rmi -f 127.0.0.1:8082/weiba/nginx:weiba` - 删除指定tag容器
+
 - `docker save 镜像id > tomcat8-apr.tar` - 导出镜像
+
 - `docker load < tomcat8-apr.tar` - 导入镜像
+    
+- docker rmi `docker images | grep  "<none>" | awk '{print $3}'` 删除所有`none`镜像
+    
+- docker rmi -f `docker images | grep  "<none>" | awk '{print $3}'` 强制删除所有`none`镜像
+    
     ```
     镜像和容器 导出和导入的区别
     镜像导入和容器导入的区别：
@@ -38,7 +51,7 @@ categories:
     1）save 保存镜像所有的信息-包含历史
     2）export 只导出当前的信息
     ```
-
+    
 - `docker history 90457edaf6ff` - 查看镜像/容器历史操作记录
 
 # 容器相关
