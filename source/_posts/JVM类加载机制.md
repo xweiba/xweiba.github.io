@@ -47,11 +47,11 @@ public class Math {
 
 效验字节码文件的的正确性，如class文件内容依次应该为：**CAFEBABE(魔数)，服版本号，主版本号，常量池计数器，常量池区域，类信息等等**。
 
-![img](JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/10812)
+![img](JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/10812.png)
 
 #### Class文件结构参照表
 
-![img](JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/10780)
+![img](JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/10780.png)
 
 ### 准备
 
@@ -70,7 +70,7 @@ public class Math {
 - 对类的静态变量初始化为指定的值。
 - 执行静态代码块。
 
-![img](JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/102279)
+![img](JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/102279.png)
 
 ## 方法区
 
@@ -114,7 +114,7 @@ public class Math {
 
 ### 原理
 
-![img](JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/102278)
+![img](JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/102278.png)
 
 **一个类在加载时，会先找这个类加载器的父类，看是否为空，不为空继续它类加载器的父类，直到没有父类。在找到后会先判断有没有加载过这个，找到直接返回，没有找到返回子类加载器查找，直到返回到自己的类加载器，开始真正的加载**。
 
@@ -125,4 +125,4 @@ public class Math {
 
 # JVM级别类加载全过程
 
-![img](JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/106918)
+![img](JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/106918.png)
