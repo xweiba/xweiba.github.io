@@ -42,6 +42,7 @@ jar -uvf0 content-microservice.jar BOOT-INF\lib\content-framework-0.0.1.jar
 ```
 
 `jstatd.all.policy` 内容
+
 ```java
 grant codebase "file:${java.home}/../lib/tools.jar" {
 
