@@ -107,19 +107,19 @@ test -f ~/.bashrc && . ~/.bashrc
 ```shell
 eval `ssh-agent` > /dev/null
 ssh-add ~/.ssh/id_rsa_github > /dev/null
-ssh-add ~/.ssh/id_rsa_xuechuang > /dev/null
+ssh-add ~/.ssh/id_rsa_xc > /dev/null
 ```
 
 每次启动 `git-bash` 都会自动启动并添加。
 
 ### 不同目录配置不同的提交账号和邮箱
 
-先复制 `C:\Users\xx` 目录下的 `git` 默认配置`.gitconfig` 配置, 需要几个环境就复制几个, 重命名为: `.gitconfig-wb`, `.gitconfig-xx`.
+先复制 `C:\Users\xx` 目录下的 `git` 默认配置`.gitconfig` 配置, 需要几个环境就复制几个, 重命名为: `.gitconfig-wb`, `.gitconfig-xc`.
 
 编辑: `.gitconfig`文件:
 ```
-[includeIf "gitdir:code/xx/"]
-   path = ./.gitconfig-xx
+[includeIf "gitdir:code/xc/"]
+   path = ./.gitconfig-xc
 
 [includeIf "gitdir:code/weiba/"]
    path = ./.gitconfig-wb
