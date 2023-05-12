@@ -1,3 +1,13 @@
+---
+title: Mysql 8.0 开启外网访问
+date: 2023-1-1 10:27:17
+tags:
+ - Mysql
+ - 配置
+categories:
+ - Mysql
+---
+
 # Mysql 8.0 开启外网访问
 
 ## 配置修改
